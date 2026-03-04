@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CosmicPulse | Beyond Infinity - AI Agentic Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--purple:#7c3aed;--cyan:#00f0ff;--pink:#bf00ff;--dark:#020010}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#020010;color:#fff;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#020010}::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#7c3aed,#00f0ff);border-radius:3px}
+.sg{font-family:'Space Grotesk',sans-serif}
+.gt{background:linear-gradient(135deg,#a78bfa,#00f0ff,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gt2{background:linear-gradient(135deg,#00f0ff,#a78bfa,#ff2d95);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.glass{background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06)}
+.glass-s{background:rgba(10,10,40,0.8);backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,0.08)}
+.gb{position:relative;border-radius:16px;background:rgba(255,255,255,0.02)}
+.gb::before{content:'';position:absolute;inset:0;border-radius:16px;padding:1px;background:linear-gradient(135deg,rgba(124,58,237,0.4),rgba(0,240,255,0.3),rgba(191,0,255,0.2));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.btn-g{position:relative;overflow:hidden;transition:all .3s ease}
+.btn-g:hover{transform:scale(1.02);box-shadow:0 0 30px rgba(124,58,237,0.4),0 0 60px rgba(0,240,255,0.2)}
+.ch{transition:all .4s cubic-bezier(.175,.885,.32,1.275)}
+.ch:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(124,58,237,0.15),0 0 40px rgba(0,240,255,0.08)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes floatSlow{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-30px) rotate(2deg)}}
+@keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes twinkle{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+@keyframes shootingStar{0%{transform:translateX(0) translateY(0) rotate(-45deg);opacity:1;width:0}30%{width:120px;opacity:1}100%{transform:translateX(600px) translateY(600px) rotate(-45deg);opacity:0;width:0}}
+@keyframes planetPulse{0%,100%{box-shadow:0 0 40px rgba(124,58,237,0.3),0 0 80px rgba(124,58,237,0.1)}50%{box-shadow:0 0 60px rgba(124,58,237,0.5),0 0 120px rgba(0,240,255,0.2)}}
+@keyframes orbit{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes ringPulse{0%,100%{opacity:.3;transform:translate(-50%,-50%) rotateX(70deg) scale(1)}50%{opacity:.6;transform:translate(-50%,-50%) rotateX(70deg) scale(1.05)}}
+@keyframes aurora{0%,100%{opacity:.3;transform:translateX(-10%) skewX(-5deg)}33%{opacity:.6;transform:translateX(5%) skewX(3deg)}66%{opacity:.4;transform:translateX(-5%) skewX(-2deg)}}
+@keyframes infinityPath{0%{stroke-dashoffset:600}50%{stroke-dashoffset:0}100%{stroke-dashoffset:-600}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.ag{background:linear-gradient(-45deg,#020010,#0d0035,#001a3a,#1a0040,#020010);background-size:400% 400%;animation:gradient 20s ease infinite}
+.shooting-star{position:absolute;height:2px;background:linear-gradient(to right,rgba(255,255,255,0),#fff,rgba(0,240,255,0.8));border-radius:50%;animation:shootingStar 3s ease-in-out infinite;pointer-events:none}
+.aurora-band{position:absolute;width:150%;height:200px;background:linear-gradient(90deg,transparent,rgba(0,240,255,0.05),rgba(124,58,237,0.08),rgba(191,0,255,0.05),transparent);filter:blur(40px);animation:aurora 12s ease-in-out infinite;pointer-events:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:all .5s}
+nav.scrolled{background:rgba(2,0,16,0.85);backdrop-filter:blur(30px);border-bottom:1px solid rgba(255,255,255,0.05);box-shadow:0 4px 30px rgba(0,0,0,0.4)}
+.nav-link{color:#9ca3af;font-size:14px;transition:color .3s;text-decoration:none;position:relative}
+.nav-link:hover{color:#fff}
+.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(to right,#a78bfa,#00f0ff);transition:width .3s}
+.nav-link:hover::after{width:100%}
+section{position:relative}
+.section-title{text-align:center;margin-bottom:80px}
+.tag{display:inline-block;padding:6px 16px;border-radius:999px;font-size:11px;text-transform:uppercase;letter-spacing:3px;margin-bottom:16px}
+input,textarea{width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);color:#fff;font-family:'Inter',sans-serif;transition:border-color .3s;outline:none}
+input:focus,textarea:focus{border-color:#7c3aed}
+input::placeholder,textarea::placeholder{color:#333}
+.nebula-s{background:radial-gradient(ellipse at 30% 0%,rgba(124,58,237,0.12) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(0,240,255,0.08) 0%,transparent 60%)}
+.nebula-sa{background:radial-gradient(ellipse at 70% 0%,rgba(191,0,255,0.1) 0%,transparent 60%),radial-gradient(ellipse at 20% 100%,rgba(30,64,175,0.08) 0%,transparent 60%)}
+.space-bg{background:radial-gradient(1.5px 1.5px at 20% 30%,#fff 100%,transparent),radial-gradient(1px 1px at 40% 70%,#f0f4ff 100%,transparent),radial-gradient(1.2px 1.2px at 60% 20%,#e0e7ff 100%,transparent),radial-gradient(1px 1px at 80% 50%,#fff 100%,transparent),radial-gradient(1.5px 1.5px at 10% 80%,#c4b5fd 100%,transparent),radial-gradient(1px 1px at 90% 10%,#f0f4ff 100%,transparent);background-size:500px 500px}
+</style>
+</head>
+<body>
+
+<!-- STARS -->
+<div id="starfield" style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden"></div>
+
+<!-- NEBULA CLOUDS -->
+<div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden">
+<div style="position:absolute;top:10%;left:5%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(124,58,237,0.07) 0%,transparent 70%);filter:blur(60px);border-radius:50%;animation:floatSlow 25s ease-in-out infinite"></div>
+<div style="position:absolute;top:50%;right:-5%;width:500px;height:500px;background:radial-gradient(ellipse,rgba(30,64,175,0.06) 0%,transparent 70%);filter:blur(50px);border-radius:50%;animation:floatSlow 30s ease-in-out 5s infinite"></div>
+<div style="position:absolute;bottom:10%;left:30%;width:450px;height:450px;background:radial-gradient(ellipse,rgba(191,0,255,0.05) 0%,transparent 70%);filter:blur(50px);border-radius:50%;animation:floatSlow 22s ease-in-out 3s infinite"></div>
+<div style="position:absolute;top:30%;left:50%;width:400px;height:400px;background:radial-gradient(ellipse,rgba(0,240,255,0.04) 0%,transparent 70%);filter:blur(45px);border-radius:50%;animation:floatSlow 28s ease-in-out 8s infinite"></div>
+</div>
+
+<!-- SHOOTING STARS -->
+<div style="position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden">
+<div class="shooting-star" style="top:15%;left:10%;animation-delay:0s;animation-duration:2.8s"></div>
+<div class="shooting-star" style="top:35%;left:25%;animation-delay:4s;animation-duration:3.2s"></div>
+<div class="shooting-star" style="top:8%;left:55%;animation-delay:8s;animation-duration:2.5s"></div>
+<div class="shooting-star" style="top:45%;left:5%;animation-delay:12s;animation-duration:3s"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+<div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:80px">
+<a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none">
+<svg width="44" height="22" viewBox="0 0 200 100" fill="none"><defs><linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a78bfa"/><stop offset="50%" stop-color="#00f0ff"/><stop offset="100%" stop-color="#c084fc"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="M50 50 C50 25,20 20,20 50 C20 80,50 75,50 50 C50 25,80 20,80 50 C80 80,50 75,50 50" transform="translate(50,0) scale(1.2)" stroke="url(#ig)" stroke-width="3.5" stroke-linecap="round" style="stroke-dasharray:300;animation:infinityPath 4s ease-in-out infinite" filter="url(#glow)"/></svg>
+<div><span class="sg" style="font-size:20px;font-weight:700;color:#fff">Cosmic<span class="gt">Pulse</span></span><span style="display:block;font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#6b7280;margin-top:-2px">Beyond Infinity</span></div>
+</a>
+<div style="display:flex;align-items:center;gap:32px" class="desk-nav">
+<a href="#services" class="nav-link">Services</a><a href="#solutions" class="nav-link">Solutions</a><a href="#products" class="nav-link">Products</a><a href="#about" class="nav-link">About</a><a href="#contact" class="nav-link">Contact</a>
+<a href="#contact" class="btn-g" style="padding:10px 24px;border-radius:999px;background:linear-gradient(to right,#7c3aed,#00b4d8);color:#fff;font-size:14px;font-weight:600;text-decoration:none">Get Started</a>
+</div></div>
+</nav>
+
+<!-- HERO -->
+<section style="min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden">
+<div class="ag" style="position:absolute;inset:0"></div>
+<div class="space-bg" style="position:absolute;inset:0;opacity:.6"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(124,58,237,0.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(30,64,175,0.06) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(191,0,255,0.05) 0%,transparent 50%)"></div>
+
+<!-- Aurora bands -->
+<div class="aurora-band" style="top:15%;left:-25%;transform:rotate(-3deg)"></div>
+<div class="aurora-band" style="top:65%;left:-25%;transform:rotate(2deg);animation-delay:4s"></div>
+
+<!-- Planet with Saturn ring -->
+<div style="position:absolute;top:12%;right:8%;width:140px;height:140px">
+<div style="width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#4c1d95,#1e1b4b,#020010);box-shadow:0 0 60px rgba(124,58,237,0.3),0 0 120px rgba(124,58,237,0.1),inset -20px -10px 30px rgba(0,0,0,0.6);animation:planetPulse 6s ease-in-out infinite"></div>
+<div style="position:absolute;top:50%;left:50%;width:220px;height:50px;border:2px solid rgba(167,139,250,0.25);border-radius:50%;animation:ringPulse 6s ease-in-out infinite"></div>
+</div>
+
+<!-- Small cyan planet -->
+<div style="position:absolute;bottom:18%;left:6%;width:60px;height:60px">
+<div style="width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 40% 40%,#0e7490,#164e63,#020010);box-shadow:0 0 30px rgba(0,240,255,0.2);animation:float 8s ease-in-out infinite"></div>
+</div>
+
+<!-- Orbit rings -->
+<div style="position:absolute;top:50%;left:50%;width:700px;height:700px;border:1px solid rgba(124,58,237,0.06);border-radius:50%;animation:orbit 30s linear infinite"><div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:rgba(167,139,250,0.4)"></div></div>
+<div style="position:absolute;top:50%;left:50%;width:500px;height:500px;border:1px solid rgba(0,240,255,0.06);border-radius:50%;animation:orbit 22s linear infinite reverse"><div style="position:absolute;bottom:0;left:50%;transform:translate(-50%,50%);width:6px;height:6px;border-radius:50%;background:rgba(0,240,255,0.4)"></div></div>
+<div style="position:absolute;top:50%;left:50%;width:350px;height:350px;border:1px solid rgba(236,72,153,0.05);border-radius:50%;animation:orbit 18s linear infinite"></div>
+
+<div style="position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:0 24px;text-align:center">
+<div class="glass" style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;border:1px solid rgba(124,58,237,0.2);margin-bottom:32px">
+<span style="width:8px;height:8px;border-radius:50%;background:#00f0ff;animation:pulse 2s infinite"></span>
+<span style="font-size:14px;color:#9ca3af">Pioneering the Future of AI Agents</span>
+</div>
+
+<div style="display:flex;justify-content:center;margin-bottom:32px;animation:float 6s ease-in-out infinite">
+<svg width="130" height="65" viewBox="0 0 200 100" fill="none"><path d="M50 50 C50 25,20 20,20 50 C20 80,50 75,50 50 C50 25,80 20,80 50 C80 80,50 75,50 50" transform="translate(50,0) scale(1.2)" stroke="url(#ig)" stroke-width="3.5" stroke-linecap="round" style="stroke-dasharray:300;animation:infinityPath 4s ease-in-out infinite" filter="url(#glow)"/><path d="M50 50 C50 25,20 20,20 50 C20 80,50 75,50 50 C50 25,80 20,80 50 C80 80,50 75,50 50" transform="translate(50,0) scale(1.2)" stroke="url(#ig)" stroke-width="10" stroke-linecap="round" opacity="0.15" style="stroke-dasharray:300;animation:infinityPath 4s ease-in-out infinite"/></svg>
+</div>
+
+<h1 class="sg" style="font-size:clamp(48px,8vw,96px);font-weight:900;letter-spacing:-2px;line-height:1">
+<span style="display:block;color:#fff;text-shadow:0 0 80px rgba(124,58,237,0.2)">Cosmic</span>
+<span class="gt" style="display:block">Pulse</span>
+</h1>
+<p style="font-size:clamp(14px,2vw,20px);color:rgba(0,240,255,0.7);text-transform:uppercase;letter-spacing:6px;margin:16px 0 24px;text-shadow:0 0 20px rgba(0,240,255,0.5),0 0 40px rgba(0,240,255,0.3)">Beyond Infinity</p>
+<p style="max-width:720px;margin:0 auto 40px;font-size:clamp(16px,1.5vw,20px);color:#9ca3af;line-height:1.7">We build autonomous AI agents that think, reason, and act — transforming enterprises with intelligent systems that go beyond automation into true cognitive partnership.</p>
+
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin-bottom:80px">
+<a href="#solutions" class="btn-g" style="padding:16px 36px;border-radius:999px;background:linear-gradient(to right,#7c3aed,#6d28d9,#00b4d8);color:#fff;font-size:18px;font-weight:600;text-decoration:none;box-shadow:0 8px 30px rgba(124,58,237,0.3)">Explore Our AI Solutions</a>
+<a href="#services" style="padding:16px 36px;border-radius:999px;border:1px solid rgba(255,255,255,0.1);color:#fff;font-weight:500;text-decoration:none;transition:all .3s" onmouseover="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.1)'">Our Services</a>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:800px;margin:0 auto">
+<div class="glass" style="text-align:center;border-radius:12px;padding:16px 12px;border:1px solid rgba(255,255,255,0.05)"><div class="sg gt" style="font-size:clamp(24px,3vw,40px);font-weight:700">50+</div><div style="font-size:12px;color:#6b7280;margin-top:4px">Clients</div></div>
+<div class="glass" style="text-align:center;border-radius:12px;padding:16px 12px;border:1px solid rgba(255,255,255,0.05)"><div class="sg gt" style="font-size:clamp(24px,3vw,40px);font-weight:700">99%</div><div style="font-size:12px;color:#6b7280;margin-top:4px">Uptime Guarantee</div></div>
+<div class="glass" style="text-align:center;border-radius:12px;padding:16px 12px;border:1px solid rgba(255,255,255,0.05)"><div class="sg gt" style="font-size:clamp(24px,3vw,40px);font-weight:700">50M+</div><div style="font-size:12px;color:#6b7280;margin-top:4px">AI Tasks Automated</div></div>
+<div class="glass" style="text-align:center;border-radius:12px;padding:16px 12px;border:1px solid rgba(255,255,255,0.05)"><div class="sg gt" style="font-size:clamp(24px,3vw,40px);font-weight:700">8+</div><div style="font-size:12px;color:#6b7280;margin-top:4px">Countries Served</div></div>
+</div>
+</div>
+<div style="position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to top,#020010,transparent)"></div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="padding:128px 0;overflow:hidden">
+<div class="space-bg" style="position:absolute;inset:0;opacity:.3"></div>
+<div class="nebula-s" style="position:absolute;inset:0"></div>
+<div style="position:relative;max-width:1280px;margin:0 auto;padding:0 24px">
+<div class="section-title">
+<span class="tag glass" style="color:#00f0ff">✦ What We Do</span>
+<h2 class="sg" style="font-size:clamp(32px,4vw,48px);font-weight:700;margin-bottom:24px">Enterprise-Grade <span class="gt">IT Services</span></h2>
+<p style="max-width:640px;margin:0 auto;color:#9ca3af;font-size:18px">From AI agent development to cloud infrastructure, we deliver end-to-end technology solutions that propel your business beyond infinity.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:24px">
+<div class="gb ch" style="padding:32px;border-radius:16px;cursor:pointer"><div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#6d28d9);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:24px">🤖</div><h3 style="font-size:20px;font-weight:600;margin-bottom:12px">AI Agent Development</h3><p style="color:#9ca3af;font-size:14px;line-height:1.7">Custom autonomous AI agents that perceive, decide, and act across complex enterprise workflows with human-level reasoning.</p><div style="margin-top:24px;display:flex;align-items:center;gap:8px;font-size:14px;color:#a78bfa">Learn more →</div></div>
+<div class="gb ch" style="padding:32px;border-radius:16px;cursor:pointer"><div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#00b4d8,#0077b6);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:24px">☁️</div><h3 style="font-size:20px;font-weight:600;margin-bottom:12px">Cloud & Infrastructure</h3><p style="color:#9ca3af;font-size:14px;line-height:1.7">Scalable cloud architecture, DevOps automation, and infrastructure modernization built for AI-native workloads.</p><div style="margin-top:24px;display:flex;align-items:center;gap:8px;font-size:14px;color:#00f0ff">Learn more →</div></div>
+<div class="gb ch" style="padding:32px;border-radius:16px;cursor:pointer"><div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#ec4899,#e11d48);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:24px">⚡</div><h3 style="font-size:20px;font-weight:600;margin-bottom:12px">Intelligent Automation</h3><p style="color:#9ca3af;font-size:14px;line-height:1.7">End-to-end process automation powered by AI, from RPA to cognitive workflows that learn and adapt autonomously.</p><div style="margin-top:24px;display:flex;align-items:center;gap:8px;font-size:14px;color:#ec4899">Learn more →</div></div>
+<div class="gb ch" style="padding:32px;border-radius:16px;cursor:pointer"><div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:24px">🛡️</div><h3 style="font-size:20px;font-weight:600;margin-bottom:12px">Cybersecurity & AI Defense</h3><p style="color:#9ca3af;font-size:14px;line-height:1.7">AI-driven threat detection, zero-trust architecture, and autonomous security operations center (SOC) solutions.</p><div style="margin-top:24px;display:flex;align-items:center;gap:8px;font-size:14px;color:#10b981">Learn more →</div></div>
+<div class="gb ch" style="padding:32px;border-radius:16px;cursor:pointer"><div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:24px">📊</div><h3 style="font-size:20px;font-weight:600;margin-bottom:12px">Data & Analytics</h3><p style="color:#9ca3af;font-size:14px;line-height:1.7">Advanced analytics platforms, real-time data pipelines, and AI-powered business intelligence dashboards.</p><div style="margin-top:24px;display:flex;align-items:center;gap:8px;font-size:14px;color:#f59e0b">Learn more →</div></div>
+<div class="gb ch" style="padding:32px;border-radius:16px;cursor:pointer"><div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#8b5cf6,#7c3aed);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:24px">📱</div><h3 style="font-size:20px;font-weight:600;margin-bottom:12px">Product Engineering</h3><p style="color:#9ca3af;font-size:14px;line-height:1.7">Full-stack product development from ideation to launch — web, mobile, and AI-native SaaS platforms.</p><div style="margin-top:24px;display:flex;align-items:center;gap:8px;font-size:14px;color:#8b5cf6">Learn more →</div></div>
+</div>
+
+<!-- Technology Services Sub-Section -->
+<div style="margin-top:128px;text-align:center;margin-bottom:64px">
+<span class="tag glass" style="color:#f59e0b">✦ Technology Expertise</span>
+<h2 class="sg" style="font-size:clamp(32px,4vw,48px);font-weight:700;margin-bottom:24px">Full-Stack <span class="gt">Technology Services</span></h2>
+<p style="max-width:640px;margin:0 auto;color:#9ca3af;font-size:18px">Deep expertise across modern technology stacks — from enterprise Java to cloud-native Go, AI-powered Python to multi-cloud infrastructure.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+<div class="gb ch" style="padding:24px;border-radius:16px;cursor:pointer"><div style="font-size:28px;margin-bottom:12px">☕</div><h3 class="sg" style="font-size:18px;font-weight:700;margin-bottom:8px">Java & Spring Boot</h3><p style="color:#9ca3af;font-size:12px;line-height:1.6;margin-bottom:12px">Enterprise-grade microservices, Spring Cloud ecosystems, reactive programming, and high-performance distributed systems with Java 21+.</p><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Spring Boot</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Spring Cloud</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Kafka</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Microservices</span></div></div>
+<div class="gb ch" style="padding:24px;border-radius:16px;cursor:pointer"><div style="font-size:28px;margin-bottom:12px">🐍</div><h3 class="sg" style="font-size:18px;font-weight:700;margin-bottom:8px">Python & AI/ML</h3><p style="color:#9ca3af;font-size:12px;line-height:1.6;margin-bottom:12px">Full-stack Python development — from Django/FastAPI backends to AI/ML pipelines with TensorFlow, PyTorch, and LangChain integrations.</p><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">FastAPI</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">TensorFlow</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">PyTorch</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">LangChain</span></div></div>
+<div class="gb ch" style="padding:24px;border-radius:16px;cursor:pointer"><div style="font-size:28px;margin-bottom:12px">🔷</div><h3 class="sg" style="font-size:18px;font-weight:700;margin-bottom:8px">.NET & C#</h3><p style="color:#9ca3af;font-size:12px;line-height:1.6;margin-bottom:12px">Enterprise .NET solutions with ASP.NET Core, Blazor, Azure-native architectures, and legacy modernization from .NET Framework to .NET 8+.</p><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">ASP.NET Core</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Blazor</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Azure Functions</span></div></div>
+<div class="gb ch" style="padding:24px;border-radius:16px;cursor:pointer"><div style="font-size:28px;margin-bottom:12px">🔵</div><h3 class="sg" style="font-size:18px;font-weight:700;margin-bottom:8px">Go (Golang)</h3><p style="color:#9ca3af;font-size:12px;line-height:1.6;margin-bottom:12px">High-performance backends, cloud-native tools, Kubernetes operators, and CLI applications built with Go for maximum concurrency and speed.</p><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Gin</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">gRPC</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">K8s Operators</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Microservices</span></div></div>
+<div class="gb ch" style="padding:24px;border-radius:16px;cursor:pointer"><div style="font-size:28px;margin-bottom:12px">🟠</div><h3 class="sg" style="font-size:18px;font-weight:700;margin-bottom:8px">AWS Cloud Services</h3><p style="color:#9ca3af;font-size:12px;line-height:1.6;margin-bottom:12px">Full AWS ecosystem — from Lambda serverless to EKS containers, SageMaker ML, and Well-Architected infrastructure-as-code deployments.</p><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Lambda</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">EKS</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">SageMaker</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">CDK</span></div></div>
+<div class="gb ch" style="padding:24px;border-radius:16px;cursor:pointer"><div style="font-size:28px;margin-bottom:12px">🔴</div><h3 class="sg" style="font-size:18px;font-weight:700;margin-bottom:8px">Google Cloud (GCP)</h3><p style="color:#9ca3af;font-size:12px;line-height:1.6;margin-bottom:12px">GCP-native solutions with Vertex AI, BigQuery analytics, Cloud Run serverless, GKE Kubernetes, and Anthos hybrid-cloud deployments.</p><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Vertex AI</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">BigQuery</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Cloud Run</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">GKE</span></div></div>
+<div class="gb ch" style="padding:24px;border-radius:16px;cursor:pointer"><div style="font-size:28px;margin-bottom:12px">🟦</div><h3 class="sg" style="font-size:18px;font-weight:700;margin-bottom:8px">Microsoft Azure</h3><p style="color:#9ca3af;font-size:12px;line-height:1.6;margin-bottom:12px">Azure enterprise solutions — from Azure OpenAI Service to AKS, Cosmos DB, Azure DevOps pipelines, and hybrid cloud with Azure Arc.</p><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Azure OpenAI</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">AKS</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Cosmos DB</span></div></div>
+<div class="gb ch" style="padding:24px;border-radius:16px;cursor:pointer"><div style="font-size:28px;margin-bottom:12px">⚛️</div><h3 class="sg" style="font-size:18px;font-weight:700;margin-bottom:8px">React & Next.js</h3><p style="color:#9ca3af;font-size:12px;line-height:1.6;margin-bottom:12px">Modern frontend engineering with React 19, Next.js, server components, and full-stack TypeScript applications with edge-first architecture.</p><div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">React 19</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Next.js</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">TypeScript</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#9ca3af">Tailwind</span></div></div>
+</div>
+
+</div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions" style="padding:128px 0;overflow:hidden">
+<div style="position:absolute;inset:0;background:linear-gradient(to bottom,#020010,#080028,#020010)"></div>
+<div class="space-bg" style="position:absolute;inset:0;opacity:.2"></div>
+<div class="nebula-sa" style="position:absolute;inset:0"></div>
+<!-- Constellation -->
+<svg style="position:absolute;top:80px;left:40px;width:256px;height:256px;opacity:.08;pointer-events:none" viewBox="0 0 200 200"><circle cx="30" cy="40" r="2" fill="#a78bfa"/><circle cx="80" cy="20" r="1.5" fill="#a78bfa"/><circle cx="120" cy="60" r="2" fill="#c4b5fd"/><circle cx="160" cy="30" r="1.5" fill="#a78bfa"/><circle cx="100" cy="100" r="2" fill="#c4b5fd"/><line x1="30" y1="40" x2="80" y2="20" stroke="#a78bfa" stroke-width="0.5" opacity="0.5"/><line x1="80" y1="20" x2="120" y2="60" stroke="#a78bfa" stroke-width="0.5" opacity="0.5"/><line x1="120" y1="60" x2="160" y2="30" stroke="#a78bfa" stroke-width="0.5" opacity="0.5"/><line x1="120" y1="60" x2="100" y2="100" stroke="#a78bfa" stroke-width="0.5" opacity="0.5"/></svg>
+<div style="position:relative;max-width:1280px;margin:0 auto;padding:0 24px">
+<div class="section-title">
+<span class="tag glass" style="color:#a78bfa">✦ AI-Powered Solutions</span>
+<h2 class="sg" style="font-size:clamp(32px,4vw,48px);font-weight:700;margin-bottom:24px">Agentic AI That <span class="gt2">Thinks & Acts</span></h2>
+<p style="max-width:640px;margin:0 auto;color:#9ca3af;font-size:18px">Our AI solutions go beyond simple automation. They reason, plan, and execute complex workflows autonomously — while keeping humans in control.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:32px">
+<div class="gb ch" style="border-radius:16px;overflow:hidden"><div style="padding:48px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start"><div style="flex:1;min-width:300px"><span style="display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600;background:linear-gradient(to right,#7c3aed,#00b4d8);margin-bottom:16px">⭐ Flagship</span><h3 class="sg" style="font-size:28px;font-weight:700;margin-bottom:16px">Agentic AI Platform</h3><p style="color:#9ca3af;line-height:1.7;margin-bottom:24px">Deploy fleets of autonomous AI agents that collaborate, reason, and execute complex multi-step tasks across your enterprise systems.</p><a href="#contact" style="color:#00f0ff;text-decoration:none;font-weight:500;display:flex;align-items:center;gap:8px">Schedule a Demo →</a></div><div class="glass" style="border-radius:12px;padding:24px;min-width:300px"><h4 style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#6b7280;margin-bottom:16px">Key Capabilities</h4><div style="display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Multi-agent orchestration</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Tool-use & API integration</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Memory & context management</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Human-in-the-loop controls</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Real-time monitoring dashboard</div></div></div></div></div>
+<div class="gb ch" style="border-radius:16px;overflow:hidden"><div style="padding:48px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start"><div style="flex:1;min-width:300px"><span style="display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600;background:linear-gradient(to right,#00b4d8,#7c3aed);margin-bottom:16px">🏢 Enterprise</span><h3 class="sg" style="font-size:28px;font-weight:700;margin-bottom:16px">Cognitive Process Automation</h3><p style="color:#9ca3af;line-height:1.7;margin-bottom:24px">Go beyond RPA with AI that understands documents, makes decisions, and handles exceptions — just like your best employees.</p><a href="#contact" style="color:#00f0ff;text-decoration:none;font-weight:500;display:flex;align-items:center;gap:8px">Schedule a Demo →</a></div><div class="glass" style="border-radius:12px;padding:24px;min-width:300px"><h4 style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#6b7280;margin-bottom:16px">Key Capabilities</h4><div style="display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Document intelligence (OCR + NLU)</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Decision automation engine</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Exception handling AI</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Process mining & optimization</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Compliance & audit trails</div></div></div></div></div>
+<div class="gb ch" style="border-radius:16px;overflow:hidden"><div style="padding:48px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start"><div style="flex:1;min-width:300px"><span style="display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600;background:linear-gradient(to right,#ec4899,#7c3aed);margin-bottom:16px">🚀 Innovation</span><h3 class="sg" style="font-size:28px;font-weight:700;margin-bottom:16px">AI Co-Pilot Suite</h3><p style="color:#9ca3af;line-height:1.7;margin-bottom:24px">Embed intelligent AI copilots into every workflow — from code generation to customer support to strategic planning.</p><a href="#contact" style="color:#00f0ff;text-decoration:none;font-weight:500;display:flex;align-items:center;gap:8px">Schedule a Demo →</a></div><div class="glass" style="border-radius:12px;padding:24px;min-width:300px"><h4 style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#6b7280;margin-bottom:16px">Key Capabilities</h4><div style="display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Custom LLM fine-tuning</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>RAG-powered knowledge base</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Multi-modal AI interactions</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Enterprise SSO & RBAC</div><div style="display:flex;align-items:center;gap:12px;font-size:14px;color:#d1d5db"><span style="width:6px;height:6px;border-radius:50%;background:linear-gradient(to right,#a78bfa,#00f0ff);flex-shrink:0"></span>Usage analytics & ROI tracking</div></div></div></div></div>
+</div></div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" style="padding:128px 0;overflow:hidden">
+<div class="space-bg" style="position:absolute;inset:0;opacity:.25"></div>
+<div class="nebula-s" style="position:absolute;inset:0"></div>
+<div style="position:relative;max-width:1280px;margin:0 auto;padding:0 24px">
+<div class="section-title">
+<span class="tag glass" style="color:#10b981">✦ Our Products</span>
+<h2 class="sg" style="font-size:clamp(32px,4vw,48px);font-weight:700;margin-bottom:24px">Products Built for the <span class="gt">AI Era</span></h2>
+<p style="max-width:640px;margin:0 auto;color:#9ca3af;font-size:18px">Our suite of AI-native products empowers enterprises to operate faster, smarter, and more autonomously.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:24px">
+<div class="gb ch" style="padding:32px;border-radius:16px"><div style="font-size:40px;margin-bottom:16px">🤖</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><h3 class="sg" style="font-size:24px;font-weight:700">PulseAgent</h3><span class="glass" style="font-size:12px;padding:2px 10px;border-radius:999px;color:#9ca3af">Autonomous AI Workforce</span></div><p style="color:#9ca3af;margin-bottom:16px;font-size:14px">Enterprise-grade platform for deploying, managing, and monitoring AI agents at scale. Built with Python, LangChain, and multi-cloud support.</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Python</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">LangChain</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">AWS/GCP/Azure</span></div><a href="#contact" style="font-size:14px;font-weight:600;color:#00f0ff;text-decoration:none">Request Access →</a></div>
+<div class="gb ch" style="padding:32px;border-radius:16px"><div style="font-size:40px;margin-bottom:16px">⚡</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><h3 class="sg" style="font-size:24px;font-weight:700">NexusFlow</h3><span class="glass" style="font-size:12px;padding:2px 10px;border-radius:999px;color:#9ca3af">Intelligent Workflow Engine</span></div><p style="color:#9ca3af;margin-bottom:16px;font-size:14px">Visual workflow builder powered by AI that automatically optimizes business processes. Java Spring Boot backend with React frontend.</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Java</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Spring Boot</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">React</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Kafka</span></div><a href="#contact" style="font-size:14px;font-weight:600;color:#00f0ff;text-decoration:none">Request Access →</a></div>
+<div class="gb ch" style="padding:32px;border-radius:16px"><div style="font-size:40px;margin-bottom:16px">📊</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><h3 class="sg" style="font-size:24px;font-weight:700">CogniSense</h3><span class="glass" style="font-size:12px;padding:2px 10px;border-radius:999px;color:#9ca3af">AI Analytics Platform</span></div><p style="color:#9ca3af;margin-bottom:16px;font-size:14px">Real-time analytics with predictive AI that surfaces insights before you ask. Built on Go microservices and BigQuery.</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Go</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">BigQuery</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Python</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Next.js</span></div><a href="#contact" style="font-size:14px;font-weight:600;color:#00f0ff;text-decoration:none">Request Access →</a></div>
+<div class="gb ch" style="padding:32px;border-radius:16px"><div style="font-size:40px;margin-bottom:16px">🛡️</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><h3 class="sg" style="font-size:24px;font-weight:700">ShieldAI</h3><span class="glass" style="font-size:12px;padding:2px 10px;border-radius:999px;color:#9ca3af">Autonomous Cyber Defense</span></div><p style="color:#9ca3af;margin-bottom:16px;font-size:14px">AI-powered security platform that detects, responds, and adapts to threats in real-time. .NET Core backend with Azure Sentinel.</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">.NET Core</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Azure</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Python ML</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Go</span></div><a href="#contact" style="font-size:14px;font-weight:600;color:#00f0ff;text-decoration:none">Request Access →</a></div>
+<div class="gb ch" style="padding:32px;border-radius:16px"><div style="font-size:40px;margin-bottom:16px">☁️</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><h3 class="sg" style="font-size:24px;font-weight:700">CloudForge</h3><span class="glass" style="font-size:12px;padding:2px 10px;border-radius:999px;color:#9ca3af">Multi-Cloud Orchestrator</span></div><p style="color:#9ca3af;margin-bottom:16px;font-size:14px">Unified control plane to manage infrastructure across AWS, GCP, and Azure with AI-powered cost optimization and auto-scaling.</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Go</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Terraform</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">AWS</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">GCP</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Azure</span></div><a href="#contact" style="font-size:14px;font-weight:600;color:#00f0ff;text-decoration:none">Request Access →</a></div>
+<div class="gb ch" style="padding:32px;border-radius:16px"><div style="font-size:40px;margin-bottom:16px">💻</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><h3 class="sg" style="font-size:24px;font-weight:700">CodePulse</h3><span class="glass" style="font-size:12px;padding:2px 10px;border-radius:999px;color:#9ca3af">AI Dev Platform</span></div><p style="color:#9ca3af;margin-bottom:16px;font-size:14px">Full-stack AI-powered development platform with code generation, review, and deployment pipelines across Java, Python, Go, and .NET.</p><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Python</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Java</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">Go</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">.NET</span><span style="font-size:10px;padding:2px 8px;border-radius:999px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd">React</span></div><a href="#contact" style="font-size:14px;font-weight:600;color:#00f0ff;text-decoration:none">Request Access →</a></div>
+</div></div>
+</section>
+
+<!-- TECH PARTNERS -->
+<section style="padding:80px 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)">
+<div class="space-bg" style="position:absolute;inset:0;opacity:.15"></div>
+<div style="position:relative;max-width:1280px;margin:0 auto;padding:0 24px;text-align:center">
+<p style="font-size:13px;color:#4b5563;text-transform:uppercase;letter-spacing:3px;margin-bottom:40px">✦ Powered By & Partnered With ✦</p>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:32px">
+<span class="sg" style="color:#6b7280;font-size:18px;font-weight:500;cursor:default;transition:color .3s" onmouseover="this.style.color='#c4b5fd'" onmouseout="this.style.color='#6b7280'">OpenAI</span>
+<span class="sg" style="color:#6b7280;font-size:18px;font-weight:500;cursor:default;transition:color .3s" onmouseover="this.style.color='#c4b5fd'" onmouseout="this.style.color='#6b7280'">LangChain</span>
+<span class="sg" style="color:#6b7280;font-size:18px;font-weight:500;cursor:default;transition:color .3s" onmouseover="this.style.color='#c4b5fd'" onmouseout="this.style.color='#6b7280'">AWS</span>
+<span class="sg" style="color:#6b7280;font-size:18px;font-weight:500;cursor:default;transition:color .3s" onmouseover="this.style.color='#c4b5fd'" onmouseout="this.style.color='#6b7280'">Azure</span>
+<span class="sg" style="color:#6b7280;font-size:18px;font-weight:500;cursor:default;transition:color .3s" onmouseover="this.style.color='#c4b5fd'" onmouseout="this.style.color='#6b7280'">Google Cloud</span>
+<span class="sg" style="color:#6b7280;font-size:18px;font-weight:500;cursor:default;transition:color .3s" onmouseover="this.style.color='#c4b5fd'" onmouseout="this.style.color='#6b7280'">Kubernetes</span>
+<span class="sg" style="color:#6b7280;font-size:18px;font-weight:500;cursor:default;transition:color .3s" onmouseover="this.style.color='#c4b5fd'" onmouseout="this.style.color='#6b7280'">PyTorch</span>
+<span class="sg" style="color:#6b7280;font-size:18px;font-weight:500;cursor:default;transition:color .3s" onmouseover="this.style.color='#c4b5fd'" onmouseout="this.style.color='#6b7280'">TensorFlow</span>
+<span class="sg" style="color:#6b7280;font-size:18px;font-weight:500;cursor:default;transition:color .3s" onmouseover="this.style.color='#c4b5fd'" onmouseout="this.style.color='#6b7280'">Snowflake</span>
+<span class="sg" style="color:#6b7280;font-size:18px;font-weight:500;cursor:default;transition:color .3s" onmouseover="this.style.color='#c4b5fd'" onmouseout="this.style.color='#6b7280'">Databricks</span>
+</div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding:128px 0;overflow:hidden">
+<div style="position:absolute;inset:0;background:linear-gradient(to bottom,#020010,#080028,#020010)"></div>
+<div class="space-bg" style="position:absolute;inset:0;opacity:.2"></div>
+<div class="nebula-sa" style="position:absolute;inset:0"></div>
+<div style="position:relative;max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+<div>
+<span class="tag glass" style="color:#a78bfa">✦ Why CosmicPulse</span>
+<h2 class="sg" style="font-size:clamp(32px,4vw,48px);font-weight:700;margin-bottom:24px">Where <span class="gt">Innovation</span> Meets Execution</h2>
+<p style="color:#9ca3af;font-size:18px;line-height:1.7;margin-bottom:32px">CosmicPulse was founded on a singular vision: to build AI systems that don't just assist — they autonomously drive outcomes.</p>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;gap:16px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#00b4d8);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px">✦</div><div><h4 style="font-weight:600;margin-bottom:4px">AI-First DNA</h4><p style="font-size:14px;color:#9ca3af">Every solution is built with AI at its core, not bolted on as an afterthought.</p></div></div>
+<div style="display:flex;gap:16px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#00b4d8);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px">✦</div><div><h4 style="font-weight:600;margin-bottom:4px">Production-Ready</h4><p style="font-size:14px;color:#9ca3af">We ship systems that run at enterprise scale with 99.99% reliability.</p></div></div>
+<div style="display:flex;gap:16px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#00b4d8);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px">✦</div><div><h4 style="font-weight:600;margin-bottom:4px">Human-Centered AI</h4><p style="font-size:14px;color:#9ca3af">Our agents amplify human capability — they don't replace human judgment.</p></div></div>
+<div style="display:flex;gap:16px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#00b4d8);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px">✦</div><div><h4 style="font-weight:600;margin-bottom:4px">Continuous Innovation</h4><p style="font-size:14px;color:#9ca3af">We invest 30% of revenue in R&D to stay at the frontier of AI.</p></div></div>
+</div></div>
+<div class="glass" style="border-radius:24px;padding:32px;overflow:hidden;position:relative">
+<div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(0,180,216,0.1))"></div>
+<div style="position:relative;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05)"><div><p style="font-size:14px;color:#9ca3af">AI Models Deployed</p><p class="sg gt" style="font-size:24px;font-weight:700">2,500+</p></div><span style="font-size:12px;padding:4px 12px;border-radius:999px;background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.2)">+340% YoY</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05)"><div><p style="font-size:14px;color:#9ca3af">Average ROI for Clients</p><p class="sg gt" style="font-size:24px;font-weight:700">12.4x</p></div><span style="font-size:12px;padding:4px 12px;border-radius:999px;background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.2)">Within 6 months</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05)"><div><p style="font-size:14px;color:#9ca3af">Data Points Processed Daily</p><p class="sg gt" style="font-size:24px;font-weight:700">8.7B</p></div><span style="font-size:12px;padding:4px 12px;border-radius:999px;background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.2)">Real-time</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05)"><div><p style="font-size:14px;color:#9ca3af">Engineering Team</p><p class="sg gt" style="font-size:24px;font-weight:700">400+</p></div><span style="font-size:12px;padding:4px 12px;border-radius:999px;background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.2)">AI/ML specialists</span></div>
+</div></div></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="padding:128px 0;overflow:hidden">
+<div class="space-bg" style="position:absolute;inset:0;opacity:.25"></div>
+<div class="nebula-s" style="position:absolute;inset:0"></div>
+<div style="position:relative;max-width:1280px;margin:0 auto;padding:0 24px">
+<div class="section-title"><span class="tag glass" style="color:#00f0ff">✦ Client Stories</span><h2 class="sg" style="font-size:clamp(32px,4vw,48px);font-weight:700">Trusted by <span class="gt">Industry Leaders</span></h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:24px">
+<div class="gb" style="padding:32px;border-radius:16px"><div style="color:#fbbf24;margin-bottom:16px">★★★★★</div><p style="color:#d1d5db;font-size:14px;line-height:1.7;font-style:italic;margin-bottom:24px">"CosmicPulse's AI agents reduced our document processing time by 94%. What used to take our team days now happens in minutes with higher accuracy."</p><div style="display:flex;align-items:center;gap:12px"><div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#00b4d8);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">SC</div><div><p style="font-weight:600;font-size:14px">Sarah Chen</p><p style="font-size:12px;color:#6b7280">CTO, FinanceFlow Global</p></div></div></div>
+<div class="gb" style="padding:32px;border-radius:16px"><div style="color:#fbbf24;margin-bottom:16px">★★★★★</div><p style="color:#d1d5db;font-size:14px;line-height:1.7;font-style:italic;margin-bottom:24px">"The Agentic AI Platform transformed our customer service. AI agents now handle 80% of inquiries autonomously, and our CSAT scores have never been higher."</p><div style="display:flex;align-items:center;gap:12px"><div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#00b4d8);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">MW</div><div><p style="font-weight:600;font-size:14px">Marcus Williams</p><p style="font-size:12px;color:#6b7280">VP Operations, TechScale Inc.</p></div></div></div>
+<div class="gb" style="padding:32px;border-radius:16px"><div style="color:#fbbf24;margin-bottom:16px">★★★★★</div><p style="color:#d1d5db;font-size:14px;line-height:1.7;font-style:italic;margin-bottom:24px">"Their cybersecurity AI detected and neutralized a zero-day threat that would have cost us millions. CosmicPulse doesn't just deliver — they protect."</p><div style="display:flex;align-items:center;gap:12px"><div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#00b4d8);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">AP</div><div><p style="font-weight:600;font-size:14px">Dr. Aisha Patel</p><p style="font-size:12px;color:#6b7280">CISO, MedSecure Health</p></div></div></div>
+</div></div>
+</section>
+
+<!-- CTA -->
+<section style="padding:96px 0;overflow:hidden;position:relative">
+<div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(124,58,237,0.2),rgba(109,40,217,0.3),rgba(0,180,216,0.2))"></div>
+<div class="space-bg" style="position:absolute;inset:0;opacity:.3"></div>
+<div class="aurora-band" style="top:30%;left:-25%"></div>
+<div style="position:relative;max-width:800px;margin:0 auto;padding:0 24px;text-align:center">
+<h2 class="sg" style="font-size:clamp(32px,4vw,48px);font-weight:700;margin-bottom:24px">Ready to Go <span class="gt">Beyond Infinity?</span></h2>
+<p style="color:#9ca3af;font-size:18px;margin-bottom:40px">Join 500+ enterprises already leveraging CosmicPulse's AI Agentic technology to transform their operations.</p>
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px">
+<a href="#contact" class="btn-g" style="padding:16px 40px;border-radius:999px;background:linear-gradient(to right,#7c3aed,#6d28d9,#00b4d8);color:#fff;font-size:18px;font-weight:600;text-decoration:none">Book a Discovery Call</a>
+<a href="#solutions" style="padding:16px 32px;border-radius:999px;border:1px solid rgba(255,255,255,0.1);color:#fff;font-weight:500;text-decoration:none;transition:all .3s" onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background='transparent'">See Our Solutions</a>
+</div></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:128px 0;overflow:hidden">
+<div style="position:absolute;inset:0;background:linear-gradient(to bottom,#020010,#080028,#020010)"></div>
+<div class="space-bg" style="position:absolute;inset:0;opacity:.15"></div>
+<div class="nebula-sa" style="position:absolute;inset:0"></div>
+<div style="position:relative;max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:64px">
+<div>
+<span class="tag glass" style="color:#00f0ff">✦ Get in Touch</span>
+<h2 class="sg" style="font-size:clamp(32px,4vw,48px);font-weight:700;margin-bottom:24px">Let's Build the <span class="gt">Future Together</span></h2>
+<p style="color:#9ca3af;font-size:18px;margin-bottom:40px">Whether you're exploring AI for the first time or scaling existing systems, our team is ready to help.</p>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:16px"><span style="font-size:24px">📧</span><div><p style="font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:2px">Email</p><p>hello@cosmicpulse.ai</p></div></div>
+<div style="display:flex;align-items:center;gap:16px"><span style="font-size:24px">📍</span><div><p style="font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:2px">Headquarters</p><p>San Francisco, CA | London, UK | Bangalore, IN</p></div></div>
+<div style="display:flex;align-items:center;gap:16px"><span style="font-size:24px">📞</span><div><p style="font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:2px">Phone</p><p>+1 (555) 0199</p></div></div>
+</div></div>
+<div class="gb" style="padding:32px;border-radius:16px">
+<form onsubmit="event.preventDefault();alert('Message sent!')" style="display:flex;flex-direction:column;gap:20px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px"><div><label style="display:block;font-size:14px;color:#9ca3af;margin-bottom:8px">First Name</label><input type="text" placeholder="John"></div><div><label style="display:block;font-size:14px;color:#9ca3af;margin-bottom:8px">Last Name</label><input type="text" placeholder="Doe"></div></div>
+<div><label style="display:block;font-size:14px;color:#9ca3af;margin-bottom:8px">Work Email</label><input type="email" placeholder="john@company.com"></div>
+<div><label style="display:block;font-size:14px;color:#9ca3af;margin-bottom:8px">Company</label><input type="text" placeholder="Company name"></div>
+<div><label style="display:block;font-size:14px;color:#9ca3af;margin-bottom:8px">How can we help?</label><textarea rows="4" placeholder="Tell us about your project..." style="resize:none"></textarea></div>
+<button type="submit" class="btn-g" style="width:100%;padding:16px;border-radius:12px;background:linear-gradient(to right,#7c3aed,#6d28d9,#00b4d8);color:#fff;font-size:18px;font-weight:600;border:none;cursor:pointer">Send Message</button>
+<p style="font-size:12px;color:#4b5563;text-align:center">We'll respond within 24 hours.</p>
+</form></div></div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid rgba(255,255,255,0.05);padding:64px 0 32px;position:relative">
+<div class="space-bg" style="position:absolute;inset:0;opacity:.1"></div>
+<div style="position:relative;max-width:1280px;margin:0 auto;padding:0 24px">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:48px">
+<div><div style="display:flex;align-items:center;gap:8px;margin-bottom:16px"><svg width="36" height="18" viewBox="0 0 200 100" fill="none"><path d="M50 50 C50 25,20 20,20 50 C20 80,50 75,50 50 C50 25,80 20,80 50 C80 80,50 75,50 50" transform="translate(50,0) scale(1.2)" stroke="url(#ig)" stroke-width="3.5" stroke-linecap="round" style="stroke-dasharray:300;animation:infinityPath 4s ease-in-out infinite"/></svg><span class="sg" style="font-size:18px;font-weight:700">Cosmic<span class="gt">Pulse</span></span></div><p style="font-size:14px;color:#6b7280;margin-bottom:16px">Pioneering AI Agentic solutions that take businesses beyond infinity.</p><div style="display:flex;gap:12px"><a href="#" class="glass" style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#9ca3af;text-decoration:none">X</a><a href="#" class="glass" style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#9ca3af;text-decoration:none">Li</a><a href="#" class="glass" style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#9ca3af;text-decoration:none">GH</a></div></div>
+<div><h4 style="font-weight:600;margin-bottom:16px;font-size:14px">Solutions</h4><div style="display:flex;flex-direction:column;gap:8px"><a href="#" style="font-size:14px;color:#6b7280;text-decoration:none">Agentic AI Platform</a><a href="#" style="font-size:14px;color:#6b7280;text-decoration:none">Cognitive Automation</a><a href="#" style="font-size:14px;color:#6b7280;text-decoration:none">AI Co-Pilot Suite</a></div></div>
+<div><h4 style="font-weight:600;margin-bottom:16px;font-size:14px">Company</h4><div style="display:flex;flex-direction:column;gap:8px"><a href="#" style="font-size:14px;color:#6b7280;text-decoration:none">About Us</a><a href="#" style="font-size:14px;color:#6b7280;text-decoration:none">Careers</a><a href="#" style="font-size:14px;color:#6b7280;text-decoration:none">Blog</a></div></div>
+<div><h4 style="font-weight:600;margin-bottom:16px;font-size:14px">Resources</h4><div style="display:flex;flex-direction:column;gap:8px"><a href="#" style="font-size:14px;color:#6b7280;text-decoration:none">Documentation</a><a href="#" style="font-size:14px;color:#6b7280;text-decoration:none">Case Studies</a><a href="#" style="font-size:14px;color:#6b7280;text-decoration:none">API Reference</a></div></div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:32px;display:flex;align-items:center;justify-content:space-between">
+<p style="font-size:12px;color:#4b5563">&copy; 2026 CosmicPulse Technologies. All rights reserved.</p>
+<div style="display:flex;gap:24px"><a href="#" style="font-size:12px;color:#4b5563;text-decoration:none">Privacy Policy</a><a href="#" style="font-size:12px;color:#4b5563;text-decoration:none">Terms of Service</a></div>
+</div></div>
+</footer>
+
+<script>
+// Scrolled nav
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+
+// Generate twinkling stars
+const sf=document.getElementById('starfield');
+const layers=[[120,1.5,'#f0f4ff'],[60,2,'#a5b4fc'],[25,2.5,'#c4b5fd']];
+layers.forEach(([count,maxSize,color])=>{for(let i=0;i<count;i++){const s=document.createElement('div');const size=Math.random()*maxSize+0.5;const glow=color==='#c4b5fd'?`0 0 ${size*4}px rgba(196,181,253,0.5)`:'none';s.style.cssText=`position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;width:${size}px;height:${size}px;border-radius:50%;background:${color};opacity:${Math.random()*0.7+0.3};animation:twinkle ${Math.random()*3+2}s ease-in-out ${Math.random()*6}s infinite;box-shadow:${glow}`;sf.appendChild(s)}});
+
+// Responsive
+const style=document.createElement('style');style.textContent='@media(max-width:768px){.desk-nav{display:none!important}section#about>div>div:last-child,.section#about .glass{display:none}section#about>div{grid-template-columns:1fr!important}section#contact>div{grid-template-columns:1fr!important}footer>div>div:first-child{grid-template-columns:1fr!important}}';document.head.appendChild(style);
+</script>
+</body>
+</html>
