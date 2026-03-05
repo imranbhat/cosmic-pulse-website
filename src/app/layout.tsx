@@ -1,10 +1,26 @@
 import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-space",
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "CosmicPulse | Beyond Infinity - AI Agentic Solutions & IT Services",
-  description: "CosmicPulse delivers cutting-edge AI Agentic solutions, intelligent automation, and world-class IT services. We build autonomous AI systems that transform businesses beyond infinity.",
-  keywords: "AI agents, agentic AI, IT services, AI solutions, autonomous AI, intelligent automation, machine learning, CosmicPulse",
+  description:
+    "CosmicPulse delivers cutting-edge AI Agentic solutions, intelligent automation, and world-class IT services. We build autonomous AI systems that transform businesses beyond infinity.",
+  keywords:
+    "AI agents, agentic AI, IT services, AI solutions, autonomous AI, intelligent automation, machine learning, CosmicPulse",
   openGraph: {
     title: "CosmicPulse | Beyond Infinity",
     description: "Pioneering AI Agentic Solutions & Next-Gen IT Services",
@@ -18,13 +34,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="en"
+      className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+        {/* Inline script prevents flash of wrong theme on load */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}`,
+          }}
+        />
       </head>
-      <body className="antialiased" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <body className="antialiased font-sans">
         {children}
       </body>
     </html>
