@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef, useMemo, createContext, useContext, useCallback } from "react";
+import { useState, useEffect, useRef, createContext, useContext, useCallback } from "react";
 
 /* ════════════════════════════════════════════
    THEME SYSTEM
@@ -64,10 +64,7 @@ function ThemeToggle() {
    INFINITY LOGO
    ════════════════════════════════════════════ */
 function InfinityLogo({ className = "", size = 48 }: { className?: string; size?: number }) {
-  const { theme } = useTheme();
-  const colors = theme === "dark"
-    ? { start: "#a78bfa", mid: "#00f0ff", end: "#c084fc" }
-    : { start: "#7c3aed", mid: "#0891b2", end: "#9333ea" };
+  const colors = { start: "#a78bfa", mid: "#00f0ff", end: "#c084fc" };
 
   return (
     <svg width={size} height={size * 0.5} viewBox="0 0 200 100" className={className} fill="none">
@@ -148,7 +145,9 @@ function useScrollReveal() {
    ════════════════════════════════════════════ */
 function StarField() {
   const { theme } = useTheme();
-  const layers = useMemo(() => {
+  const [layers, setLayers] = useState<{ x: number; y: number; size: number; opacity: number; delay: number; duration: number }[][]>([]);
+
+  useEffect(() => {
     const makeStar = (count: number, maxSize: number) =>
       Array.from({ length: count }, () => ({
         x: Math.random() * 100,
@@ -158,10 +157,10 @@ function StarField() {
         delay: Math.random() * 6,
         duration: Math.random() * 3 + 2,
       }));
-    return [makeStar(40, 1.5), makeStar(20, 2), makeStar(10, 2.5)];
+    setLayers([makeStar(40, 1.5), makeStar(20, 2), makeStar(10, 2.5)]);
   }, []);
 
-  if (theme === "light") return null;
+  if (theme === "light" || layers.length === 0) return null;
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
@@ -194,15 +193,18 @@ function StarField() {
    ════════════════════════════════════════════ */
 function ShootingStars() {
   const { theme } = useTheme();
-  const stars = useMemo(() =>
-    Array.from({ length: 3 }, (_, i) => ({
+  const [stars, setStars] = useState<{ top: string; left: string; delay: number; duration: number }[]>([]);
+
+  useEffect(() => {
+    setStars(Array.from({ length: 3 }, (_, i) => ({
       top: Math.random() * 50 + '%',
       left: Math.random() * 40 + '%',
       delay: i * 4 + Math.random() * 2,
       duration: 2.5 + Math.random() * 1.5,
-    })), []);
+    })));
+  }, []);
 
-  if (theme === "light") return null;
+  if (theme === "light" || stars.length === 0) return null;
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[1] overflow-hidden">
@@ -242,9 +244,15 @@ function LightDecorations() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      <div className="absolute rounded-full" style={{ top: '-5%', right: '-5%', width: '500px', height: '500px', background: 'radial-gradient(ellipse, rgba(124,58,237,0.06) 0%, transparent 70%)', filter: 'blur(60px)' }} />
-      <div className="absolute rounded-full" style={{ bottom: '10%', left: '-5%', width: '400px', height: '400px', background: 'radial-gradient(ellipse, rgba(8,145,178,0.05) 0%, transparent 70%)', filter: 'blur(50px)' }} />
-      <div className="absolute rounded-full" style={{ top: '40%', left: '50%', width: '350px', height: '350px', background: 'radial-gradient(ellipse, rgba(147,51,234,0.04) 0%, transparent 70%)', filter: 'blur(50px)' }} />
+      {/* Large blurred orbs for depth */}
+      <div className="absolute rounded-full" style={{ top: '-10%', right: '-8%', width: '600px', height: '600px', background: 'radial-gradient(ellipse, rgba(124,58,237,0.1) 0%, rgba(167,139,250,0.04) 40%, transparent 70%)', filter: 'blur(40px)', animation: 'floatSlow 20s ease-in-out infinite' }} />
+      <div className="absolute rounded-full" style={{ bottom: '5%', left: '-8%', width: '550px', height: '550px', background: 'radial-gradient(ellipse, rgba(0,240,255,0.08) 0%, rgba(8,145,178,0.03) 40%, transparent 70%)', filter: 'blur(40px)', animation: 'floatSlow 25s ease-in-out 3s infinite' }} />
+      <div className="absolute rounded-full" style={{ top: '35%', left: '45%', width: '500px', height: '500px', background: 'radial-gradient(ellipse, rgba(191,0,255,0.06) 0%, transparent 65%)', filter: 'blur(50px)', animation: 'floatSlow 22s ease-in-out 6s infinite' }} />
+      <div className="absolute rounded-full" style={{ top: '10%', left: '20%', width: '300px', height: '300px', background: 'radial-gradient(ellipse, rgba(67,97,238,0.07) 0%, transparent 70%)', filter: 'blur(35px)', animation: 'floatSlow 18s ease-in-out 2s infinite' }} />
+
+      {/* Decorative rings */}
+      <div className="absolute" style={{ top: '15%', right: '12%', width: '200px', height: '200px', border: '1px solid rgba(124,58,237,0.08)', borderRadius: '50%', animation: 'orbit 40s linear infinite' }} />
+      <div className="absolute" style={{ bottom: '20%', left: '8%', width: '150px', height: '150px', border: '1px solid rgba(0,240,255,0.06)', borderRadius: '50%', animation: 'orbit 30s linear infinite reverse' }} />
     </div>
   );
 }
