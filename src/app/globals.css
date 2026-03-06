@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 /* ═══════════════════════════════════════════════
    THEME VARIABLES
@@ -121,20 +120,18 @@
 /* ═══════════════════════════════════════════════
    THEME UTILITY CLASSES
    ═══════════════════════════════════════════════ */
-@layer utilities {
-  .text-heading { color: var(--text-heading); }
-  .text-body { color: var(--text-body); }
-  .text-muted { color: var(--text-muted); }
-  .text-dim { color: var(--text-dim); }
-  .text-accent-cyan { color: var(--accent-text-cyan); }
-  .text-accent-purple { color: var(--accent-text-purple); }
-  .text-accent-emerald { color: var(--accent-text-emerald); }
-  .text-accent-amber { color: var(--accent-text-amber); }
-  .bg-body { background-color: var(--bg-body); }
-  .bg-surface { background-color: var(--bg-surface); }
-  .border-theme { border-color: var(--border-light); }
-  .border-theme-subtle { border-color: var(--border-subtle); }
-}
+@utility text-heading { color: var(--text-heading); }
+@utility text-body { color: var(--text-body); }
+@utility text-muted { color: var(--text-muted); }
+@utility text-dim { color: var(--text-dim); }
+@utility text-accent-cyan { color: var(--accent-text-cyan); }
+@utility text-accent-purple { color: var(--accent-text-purple); }
+@utility text-accent-emerald { color: var(--accent-text-emerald); }
+@utility text-accent-amber { color: var(--accent-text-amber); }
+@utility bg-body { background-color: var(--bg-body); }
+@utility bg-surface { background-color: var(--bg-surface); }
+@utility border-theme { border-color: var(--border-light); }
+@utility border-theme-subtle { border-color: var(--border-subtle); }
 
 /* ═══════════════════════════════════════════════
    RESET & BASE
