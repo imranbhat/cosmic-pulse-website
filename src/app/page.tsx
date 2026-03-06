@@ -298,11 +298,11 @@ function Navbar() {
             {links.map((l) => (
               <a key={l.label} href={l.href} className="text-sm text-body hover:text-heading transition-colors relative group">
                 {l.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-purple-400 to-cyan-400 group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-linear-to-r from-purple-400 to-cyan-400 group-hover:w-full transition-all duration-300" />
               </a>
             ))}
             <ThemeToggle />
-            <a href="#contact" className="btn-glow px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 text-sm font-semibold text-white">Get Started</a>
+            <a href="#contact" className="btn-glow px-6 py-2.5 rounded-full bg-linear-to-r from-purple-600 to-cyan-500 text-sm font-semibold text-white">Get Started</a>
           </div>
           <div className="md:hidden flex items-center gap-3">
             <ThemeToggle />
@@ -318,7 +318,7 @@ function Navbar() {
         <div className="md:hidden" style={{ background: 'var(--bg-surface-strong)', borderTop: '1px solid var(--border-subtle)', backdropFilter: 'blur(30px)' }}>
           <div className="px-6 py-4 space-y-3">
             {links.map((l) => (<a key={l.label} href={l.href} onClick={() => setMobileOpen(false)} className="block text-body hover:text-heading py-2 transition-colors">{l.label}</a>))}
-            <a href="#contact" className="block text-center px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 text-sm font-semibold text-white">Get Started</a>
+            <a href="#contact" className="block text-center px-6 py-2.5 rounded-full bg-linear-to-r from-purple-600 to-cyan-500 text-sm font-semibold text-white">Get Started</a>
           </div>
         </div>
       )}
@@ -404,7 +404,7 @@ function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-          <a href="#solutions" className="btn-glow px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-cyan-500 text-white font-semibold text-lg shadow-xl shadow-purple-900/30">Explore Our AI Solutions</a>
+          <a href="#solutions" className="btn-glow px-8 py-4 rounded-full bg-linear-to-r from-purple-600 via-violet-600 to-cyan-500 text-white font-semibold text-lg shadow-xl shadow-purple-900/30">Explore Our AI Solutions</a>
           <a href="#services" className="px-8 py-4 rounded-full font-medium transition-all text-heading" style={{ border: '1px solid var(--border-light)', background: d ? 'transparent' : 'var(--bg-surface)' }}>Our Services</a>
         </div>
 
@@ -469,7 +469,7 @@ function Services() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <div key={service.title} className="section-animate gradient-border card-hover rounded-2xl p-8 group cursor-pointer" style={{ transitionDelay: `${i * 0.08}s` }}>
-              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} mb-6 text-2xl shadow-lg group-hover:scale-110 transition-transform`}>{service.icon}</div>
+              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-linear-to-br ${service.gradient} mb-6 text-2xl shadow-lg group-hover:scale-110 transition-transform`}>{service.icon}</div>
               <h3 className="text-xl font-semibold mb-3 text-heading transition-colors">{service.title}</h3>
               <p className="text-body leading-relaxed text-sm">{service.description}</p>
               <div className="mt-6 flex items-center gap-2 text-sm text-accent-purple transition-colors">
@@ -549,7 +549,7 @@ function Solutions() {
             <div key={sol.title} className="section-animate gradient-border card-hover rounded-2xl overflow-hidden" style={{ transitionDelay: `${i * 0.12}s` }}>
               <div className="p-8 md:p-12 flex flex-col lg:flex-row gap-8 items-start">
                 <div className="flex-1">
-                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r ${sol.gradient} mb-4`}>{sol.tag}</span>
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold text-white bg-linear-to-r ${sol.gradient} mb-4`}>{sol.tag}</span>
                   <h3 className="text-2xl md:text-3xl font-bold mb-4 text-heading font-display">{sol.title}</h3>
                   <p className="text-body leading-relaxed mb-6">{sol.description}</p>
                   <a href="#contact" className="inline-flex items-center gap-2 text-accent-cyan transition-colors font-medium">Schedule a Demo <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></a>
@@ -557,7 +557,7 @@ function Solutions() {
                 <div className="w-full lg:w-auto lg:min-w-[320px]">
                   <div className="glass rounded-xl p-6">
                     <h4 className="text-sm uppercase tracking-wider text-muted mb-4">Key Capabilities</h4>
-                    <ul className="space-y-3">{sol.features.map((f) => (<li key={f} className="flex items-center gap-3 text-sm text-body"><span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-cyan-400 flex-shrink-0" />{f}</li>))}</ul>
+                    <ul className="space-y-3">{sol.features.map((f) => (<li key={f} className="flex items-center gap-3 text-sm text-body"><span className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-purple-400 to-cyan-400 shrink-0" />{f}</li>))}</ul>
                   </div>
                 </div>
               </div>
@@ -662,7 +662,7 @@ function About() {
                 { title: "Continuous Innovation", desc: "We invest 30% of revenue in R&D to stay at the frontier of AI." },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-cyan-500 flex items-center justify-center text-white text-sm">✦</div>
+                  <div className="shrink-0 w-10 h-10 rounded-lg bg-linear-to-br from-purple-600 to-cyan-500 flex items-center justify-center text-white text-sm">✦</div>
                   <div><h4 className="font-semibold text-heading mb-1">{item.title}</h4><p className="text-sm text-body">{item.desc}</p></div>
                 </div>
               ))}
@@ -717,7 +717,7 @@ function Testimonials() {
               <div className="flex gap-1 mb-4 text-accent-amber">★★★★★</div>
               <p className="text-body leading-relaxed mb-6 text-sm italic">&ldquo;{t.quote}&rdquo;</p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-cyan-500 flex items-center justify-center text-xs font-bold text-white">{t.avatar}</div>
+                <div className="w-10 h-10 rounded-full bg-linear-to-br from-purple-600 to-cyan-500 flex items-center justify-center text-xs font-bold text-white">{t.avatar}</div>
                 <div><p className="font-semibold text-heading text-sm">{t.author}</p><p className="text-xs text-muted">{t.role}</p></div>
               </div>
             </div>
@@ -743,7 +743,7 @@ function CTABanner() {
         <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display text-heading">Ready to Go <span className="gradient-text">Beyond Infinity?</span></h2>
         <p className="text-body text-lg mb-10 max-w-2xl mx-auto">Join 500+ enterprises already leveraging CosmicPulse&apos;s AI Agentic technology to transform their operations and outpace the competition.</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#contact" className="btn-glow px-10 py-4 rounded-full bg-gradient-to-r from-purple-600 via-violet-600 to-cyan-500 text-white font-semibold text-lg">Book a Discovery Call</a>
+          <a href="#contact" className="btn-glow px-10 py-4 rounded-full bg-linear-to-r from-purple-600 via-violet-600 to-cyan-500 text-white font-semibold text-lg">Book a Discovery Call</a>
           <a href="#solutions" className="px-8 py-4 rounded-full font-medium transition-all text-heading" style={{ border: '1px solid var(--border-light)', background: d ? 'transparent' : 'var(--bg-surface)' }}>See Our Solutions</a>
         </div>
       </div>
@@ -806,7 +806,7 @@ function Contact() {
                   <label className="block text-sm text-body mb-2">How can we help?</label>
                   <textarea rows={4} className="w-full px-4 py-3 rounded-xl text-heading placeholder-gray-500 focus:outline-none transition-colors resize-none" style={{ background: 'var(--bg-input)', border: '1px solid var(--border-light)' }} placeholder="Tell us about your project or challenge..." />
                 </div>
-                <button type="submit" className="w-full btn-glow py-4 rounded-xl bg-gradient-to-r from-purple-600 via-violet-600 to-cyan-500 text-white font-semibold text-lg border-0 cursor-pointer">Send Message</button>
+                <button type="submit" className="w-full btn-glow py-4 rounded-xl bg-linear-to-r from-purple-600 via-violet-600 to-cyan-500 text-white font-semibold text-lg border-0 cursor-pointer">Send Message</button>
                 <p className="text-xs text-dim text-center">We&apos;ll respond within 24 hours. No spam, ever.</p>
               </form>
             </div>
